@@ -10,9 +10,6 @@ statetimetally = function(ts,tseq){
   ts1 = c(ts[ind],ts[length(ts)])
   tseq1 = c(cumtseq[ind],cumtseq[length(cumtseq)])
   diffseq = diff(tseq1)
-  #print(ts1)
-  #print(tseq1)
-  #print(diffseq)
   for (i in 1:(length(ts1)-1)){
     stally[ts1[i+1]] = stally[ts1[i+1]] + diffseq[i]
   }
@@ -71,7 +68,7 @@ tseq = c(2,3,1,4,5,7,8,1,1) # time spent in each associated state
 
 # Train CTMC
 N = max(ts)
-transratemat = (ts,tseq,N)
+transratemat = trainCTMC(ts,tseq,N)
 
 # Supply absorbing states.
 ds = c(1,2)
