@@ -18,6 +18,7 @@ statetimetally = function(ts,tseq){
 } 
 
 # This function creates a transition matrix recording state transitions.
+# type: continuous- or discrete CTMC
 counttrans = function(ts,type='continuous'){
   N = max(ts)
   if (type=='continuous'){
