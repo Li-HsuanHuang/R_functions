@@ -91,6 +91,6 @@ r = expected_time(transratemat, ds = ds)
 ts = c(2,3,4,7,5,2)
 tseq = c(1,1,1,1,1,1)
 transratemat = trainCTMC1(ts,tseq)
-ds = unique(ts)[1]
+ds = which(unique(ts)==min(ts)) # smallest state/absoring state
 r = expected_time(transratemat,ds = ds)
 
