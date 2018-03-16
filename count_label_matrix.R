@@ -38,8 +38,6 @@ num = length(ustates)
 counts = matrix(0,nrow = num,ncol = num)
 rownames(counts) = ustates
 colnames(counts) = ustates
-timespent = numeric(num)
-names(timespent) = ustates
 for (i in 1:20){
   states = as.numeric(statesData[i,!is.na( statesData[i,])])
   if (length(states) > 1){
