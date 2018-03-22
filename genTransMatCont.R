@@ -17,7 +17,7 @@ genTransMatCont = function(stateList,timeList){
     if (time=="continuous"){
       ind = which(diff(timeSeries)!=0)
       if (length(ind)!=0){
-        timeSeries = c(timeSeries[ind],tail(timeSeries))
+        timeSeries = c(timeSeries[ind],tail(timeSeries,1))
       }
     }
     
