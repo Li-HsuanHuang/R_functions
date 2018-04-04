@@ -10,8 +10,8 @@ new_mat = function(A,p){
  N = nrow(A)
  newmat = matrix(0,nrow=N/p,ncol=N/q)
  for (i in 1:(N/p)){
-    for (j in 1:(R/q)){
-      newmat[i,j] = sum(A[(p*(i-1)+1):(p*i),(q*(j-1)+1):(q*j)])
+    for (j in 1:(N/q)){
+      newmat[i,j] = sum(A[(p*(i-1)+1):(p*i),(p*(j-1)+1):(p*j)])
     }
  }
  return(newmat)
@@ -26,3 +26,9 @@ for (j in d){
 }
 
 print(Mat)
+
+# Create transition matrices from Mat
+B = abs(Mat[[1]])/rowSums(Mat[[1]])
+evec = Re(eigen(t(B))$vectors[,1])
+pivec = abs(evec)/sum(abs(evec))
+print(pivec)
