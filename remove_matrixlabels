@@ -1,0 +1,23 @@
+# An example of how to remove state row(s) and column(s) 
+# from a 3D array
+
+A = array(0,dim=c(3,4,2))
+
+A[,,1] = matrix(c(1:12))
+A[,,2] = matrix(rep(5,12))
+
+# Now create row and column labels
+rownames(A) = c(5,6,40)
+colnames(A) = c(5,7,8,41)
+
+# Suppose we want to remove state labels 5 and 7.
+# We first find the indices corresponding to those indices.
+
+rowind = which(rownames(A) == 5)
+colind = which(colnames(A) == 7)
+
+# A after state remvoals
+newA = A[-rowind,-colind,]
+
+print(dim(newA))
+print(newA)
